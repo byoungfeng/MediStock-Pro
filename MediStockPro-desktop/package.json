@@ -1,0 +1,41 @@
+{
+  "name": "medistock-pro-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediStock Pro 桌面端 (Electron 壳)",
+  "main": "main.js",
+  "scripts": {
+    "dev": "cross-env WEB_URL=http://localhost:5174 electron .",
+    "start": "electron .",
+    "build": "electron-builder --win zip",
+    "build:nsis": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.medistock.pro",
+    "productName": "MediStock Pro",
+    "files": ["main.js", "preload.js"],
+    "extraResources": [
+      { "from": "../MediStockPro-web/dist", "to": "web" }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
+    },
+    "publish": [
+      { "provider": "generic", "url": "https://updates.example.com/medistock-pro/" }
+    ]
+  }
+}

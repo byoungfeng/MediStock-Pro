@@ -1,0 +1,67 @@
+# ==================== 通用 ====================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+hs_err_pid*.log
+
+# ==================== Java / Maven ====================
+target/
+*.class
+*.jar
+*.war
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+# ==================== Node / 前端 ====================
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================== IDE ====================
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.trae/
+.impeccable/
+
+# ==================== 环境与密钥 ====================
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.yaml
+
+# ==================== 仓库根目录非源码内容 ====================
+# 设计交付包、素材、压缩包等不进入版本库
+*.zip
+*.rar
+*.7z
+_extracted_docs/
+_tools/
+ever-gauzy-develop/
+MediStockPro_设计交付包/
+医院进销存_V2.0_产品设计交付包/
+医院进销存_V3.0_可开发级设计包/
+医院进销存_产品设计全套V1.0/
+
+# 根目录散落的过程截图 / 图片素材
+/*.png
+/*.jpg
+/*.jpeg
+
+# Electron 构建产物
+MediStockPro-desktop/dist/
+MediStockPro-desktop/out/
+MediStockPro-desktop/release/

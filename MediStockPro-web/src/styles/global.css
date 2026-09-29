@@ -1,0 +1,284 @@
+/* MediStock Pro 设计令牌 — 医疗蓝现代浅色风 (Linear / Stripe / 飞书 / Fluent 工艺基准) */
+/* 在 body 上覆盖 Semi 变量: 比 :root 离组件更近, 不受按需样式加载顺序影响 */
+body {
+  /* accent: 医疗蓝 (唯一强调色, 全站锁定) */
+  --semi-blue-0: 239, 246, 255;
+  --semi-blue-1: 219, 234, 254;
+  --semi-blue-2: 191, 219, 254;
+  --semi-blue-3: 147, 197, 253;
+  --semi-blue-4: 96, 165, 250;
+  --semi-blue-5: 37, 99, 235;
+  --semi-blue-6: 29, 78, 216;
+  --semi-blue-7: 30, 64, 175;
+  --semi-blue-8: 30, 58, 138;
+  --semi-blue-9: 23, 37, 84;
+
+  /* 冷灰中性阶 */
+  --semi-grey-0: 249, 250, 251;
+  --semi-grey-1: 243, 244, 246;
+  --semi-grey-2: 229, 231, 235;
+  --semi-grey-3: 209, 213, 219;
+  --semi-grey-4: 156, 163, 175;
+  --semi-grey-5: 107, 114, 128;
+  --semi-grey-6: 75, 85, 99;
+  --semi-grey-7: 55, 65, 81;
+  --semi-grey-8: 31, 41, 55;
+  --semi-grey-9: 17, 24, 39;
+
+  /* 圆角体系: 控件 6 / 输入 10 / 面板 14 */
+  --semi-border-radius-extra-small: 4px;
+  --semi-border-radius-small: 6px;
+  --semi-border-radius-medium: 8px;
+  --semi-border-radius-large: 14px;
+
+  /* 发丝边框与填充层 */
+  --semi-color-border: rgba(17, 24, 39, 0.09);
+  --semi-color-fill-0: rgba(31, 41, 55, 0.04);
+  --semi-color-fill-1: rgba(31, 41, 55, 0.08);
+  --semi-color-fill-2: rgba(31, 41, 55, 0.12);
+
+  /* 阴影体系: 柔和、分层、低透明度 */
+  --semi-shadow-0: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  --semi-shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --semi-shadow-2: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --semi-shadow-3: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+  font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Noto Sans CJK SC', sans-serif;
+  color: rgb(17, 24, 39);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 数据一律等宽数字 */
+.semi-table,
+.stat-value,
+.metric-value,
+.todo-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 浏览器表面同样属于设计: 选区 / 滚动条 / 焦点环 */
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(31, 41, 55, 0.16);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 41, 55, 0.28);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.5);
+  outline-offset: 1px;
+}
+
+/* 全局微动效: 颜色/背景/边框/阴影/变换 150ms 平滑过渡 */
+* {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 表格行 hover 与品牌同色系 */
+.semi-table-tbody > .semi-table-row:hover > .semi-table-row-cell {
+  background: rgba(37, 99, 235, 0.04);
+}
+/* 表格容器圆角 */
+.semi-table-wrapper { border-radius: 8px !important; overflow: hidden; }
+/* 表头精修: 淡蓝底深蓝灰字 (V3.0 原型表格语言) */
+.semi-table-thead > .semi-table-row > .semi-table-row-head {
+  background: rgb(240, 245, 255) !important;
+  color: rgb(51, 81, 138) !important;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.12) !important;
+}
+/* 表体文字比纯 ink 软半档 */
+.semi-table-tbody > .semi-table-row > .semi-table-row-cell {
+  color: rgb(55, 65, 81);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06) !important;
+}
+/* 斑马纹 */
+.semi-table-tbody > .semi-table-row:nth-child(even) > .semi-table-row-cell {
+  background: rgba(240, 245, 255, 0.4);
+}
+
+/* 按钮按压反馈: 1px 下沉, 由全局 transform 过渡带平滑 */
+.semi-button:active {
+  transform: translateY(1px);
+}
+
+/* 路由切换: 150ms 淡出淡入 + 4px 上移, 尊重减少动效 */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(4px);
+}
+.page-leave-to {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+}
+
+/* 卡片/面板: 与登录页白卡同一语言 — 14px 圆角 + 发丝边 + 大柔阴影 */
+.semi-card,
+.panel,
+.page-card {
+  border: 1px solid #e8edf5 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.07);
+}
+.semi-card:hover,
+.panel:hover {
+  box-shadow: 0 20px 56px rgba(15, 23, 42, 0.09);
+}
+/* 列表页通用容器 */
+.page-card {
+  background: #fff;
+  padding: 18px 20px;
+}
+/* 列表页工具栏: 输入框 + 按钮横排 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.toolbar .semi-button { border-radius: 10px; }
+
+/* 主按钮: 登录页同款蓝色渐变 + 蓝色投影 */
+.semi-button-primary.semi-button-solid {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 55%, #1d4ed8 100%) !important;
+  border-color: transparent !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.28);
+  font-weight: 600;
+}
+.semi-button-primary.semi-button-solid:hover {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 55%, #2563eb 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.36);
+}
+.semi-button-primary.semi-button-light {
+  background: rgba(37, 99, 235, 0.1);
+  color: rgb(37, 99, 235);
+}
+.semi-button-primary.semi-button-light:hover {
+  background: rgba(37, 99, 235, 0.16);
+}
+
+/* 输入框聚焦环 */
+.semi-input-wrapper-focus,
+.semi-select-focus,
+.semi-textarea-wrapper-focus {
+  border-color: rgb(37, 99, 235) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12) !important;
+}
+/* 输入框/选择器: 登录页同款 10px 圆角 + 浅灰底 */
+.semi-input-wrapper,
+.semi-select,
+.semi-textarea-wrapper {
+  border-radius: 10px !important;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+.semi-input-wrapper:hover,
+.semi-select:hover,
+.semi-textarea-wrapper:hover {
+  background: #fff;
+  border-color: #cbd5e1;
+}
+
+/* 状态标签通用色 (参考原型语义色) */
+.semi-tag { border-radius: 6px; font-weight: 500; }
+.tag-blue { color: #2563eb; background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2); }
+.tag-green { color: #16a34a; background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.2); }
+.tag-orange { color: #d97706; background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.2); }
+.tag-red { color: #dc2626; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); }
+.tag-gray { color: #6b7280; background: rgba(107,114,128,0.1); border: 1px solid rgba(107,114,128,0.15); }
+
+
+/* 标签页选中色 */
+.semi-tabs-tab.semi-tabs-tab-active {
+  color: rgb(37, 99, 235);
+}
+.semi-tabs-bar-line .semi-tabs-tab-active ~ .semi-tabs-ink-bar {
+  background: rgb(37, 99, 235);
+}
+
+/* 分段标签 (seg-tabs): 原型式下划线切换 */
+.seg-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid rgba(17, 24, 39, 0.08); }
+.seg-tab { padding: 8px 16px; font-size: 13px; color: #4b5563; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s ease; }
+.seg-tab:hover { color: #2563eb; }
+.seg-tab.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+
+/* 分页: 主色选中态 */
+.semi-pagination-item-active {
+  background: rgb(37, 99, 235) !important;
+  border-color: rgb(37, 99, 235) !important;
+  color: #fff !important;
+}
+
+
+/* 链接色 */
+a,
+.semi-typography-link {
+  color: rgb(37, 99, 235);
+}
+a:hover,
+.semi-typography-link:hover {
+  color: rgb(29, 78, 216);
+}
+
+/* 空态: 居中、弱化、留白充足 */
+.semi-table .semi-table-placeholder,
+.semi-empty {
+  padding: 48px 0;
+  color: rgb(107, 114, 128);
+}
+.semi-empty .semi-empty-title,
+.semi-empty .semi-empty-description {
+  color: rgb(107, 114, 128);
+}
+
+/* 加载态: 主色 spinner */
+.semi-spin .semi-spin-wrapper > svg {
+  color: rgb(37, 99, 235);
+}
+
+/* 骨架屏: 与填充层同色系, 避免突兀 */
+.semi-skeleton-item {
+  background: rgba(31, 41, 55, 0.08);
+}
+
+/* 弹层统一大圆角 + 分层阴影 */
+.semi-modal-content,
+.semi-popover-wrapper,
+.semi-tooltip-wrapper,
+.semi-dropdown-menu {
+  border-radius: 12px;
+  box-shadow: var(--semi-shadow-2);
+}
+
+/* Toast 反馈: 大圆角 + 阴影 */
+.semi-toast-content {
+  border-radius: 10px;
+  box-shadow: var(--semi-shadow-2);
+}
