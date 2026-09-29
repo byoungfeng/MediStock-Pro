@@ -85,7 +85,7 @@
           <span class="submit-inner">登录 <IconArrowRight class="submit-arrow" /></span>
         </Button>
 
-        <p class="form-copy">© 2025 MediStock Pro · 医院进销存管理系统 v3.0</p>
+        <p class="form-copy">© 2026 MediStock Pro · 医院进销存管理系统 v3.0</p>
       </div>
     </section>
   </div>

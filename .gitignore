@@ -17,6 +17,8 @@ target/
 # ==================== Node / 前端 ====================
 node_modules/
 dist/
+dist-dev/
+dist-prod/
 dist-ssr/
 .vite/
 *.local
@@ -40,6 +42,9 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+!.env.development
+!.env.production
+!.env.electron
 application-local.yml
 application-local.yaml
 

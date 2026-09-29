@@ -1,0 +1,24 @@
+# ==================== 开发环境 (默认 profile) ====================
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:medistock_pro}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:by123456}
+
+# 开发环境 JWT 密钥使用内置默认值, 便于免配置启动
+sa-token:
+  jwt-secret-key: ${JWT_SECRET_KEY:medistock-pro-jwt-secret-change-me-in-prod}
+
+# 开发环境打印 SQL
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 开发环境开启接口文档
+knife4j:
+  enable: true
+
+logging:
+  level:
+    com.medistock.pro: debug

@@ -5,10 +5,11 @@
   "description": "MediStock Pro 桌面端 (Electron 壳)",
   "main": "main.js",
   "scripts": {
-    "dev": "cross-env WEB_URL=http://localhost:5174 electron .",
+    "dev": "cross-env WEB_URL=http://localhost:5173 electron .",
     "start": "electron .",
-    "build": "electron-builder --win zip",
-    "build:nsis": "electron-builder --win nsis"
+    "build:web": "npm --prefix ../MediStockPro-web run build:electron",
+    "build": "npm run build:web && electron-builder --win zip",
+    "build:nsis": "npm run build:web && electron-builder --win nsis"
   },
   "dependencies": {
     "electron-updater": "^6.3.9"

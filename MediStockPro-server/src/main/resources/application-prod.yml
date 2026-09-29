@@ -1,0 +1,24 @@
+# ==================== 生产环境 (--spring.profiles.active=prod) ====================
+# 以下 ${...} 占位符无默认值, 必须通过环境变量/启动参数注入, 缺失将快速失败而非使用弱口令
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:medistock_pro}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=true
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    hikari:
+      pool-name: MedistockHikariPool
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+# 生产环境 JWT 密钥必须通过环境变量注入 (无默认值, 缺失即启动失败)
+sa-token:
+  jwt-secret-key: ${JWT_SECRET_KEY}
+
+# 生产环境不打印 SQL, 不开启接口文档
+logging:
+  level:
+    root: warn
+    com.medistock.pro: info
