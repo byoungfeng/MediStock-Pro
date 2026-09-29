@@ -88,7 +88,7 @@
 ## 项目结构
 
 ```
-erp-jxc/
+MediStockPro/
 ├── MediStockPro-web/       # 前端 (Vue 3 + Vite)
 │   └── src/
 │       ├── api/            # 接口封装
